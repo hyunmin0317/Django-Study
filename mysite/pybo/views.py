@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Question
 
+
 # pybo 목록 출력
 def index(request):
     question_list = Question.objects.order_by('-create_date')
