@@ -4,6 +4,8 @@ from django.core.paginator import Paginator
 from .models import Question
 from .forms import QuestionForm, AnswerForm
 
+app_name = 'pybo'
+
 # pybo 목록 출력
 def index(request):
     page = request.GET.get('page', '1')  # 페이지
