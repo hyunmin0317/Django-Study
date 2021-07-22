@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from .models import Question
 from .forms import QuestionForm, AnswerForm
+from django.contrib.auth.decorators import login_required
 
 app_name = 'pybo'
 
@@ -23,12 +24,14 @@ def detail(request, question_id):
     return render(request, 'pybo/question_detail.html', context)
 
 # pybo 답변등록
+@login_required(login_url='common:login')
 def answer_create(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     if request.method == "POST":
         form = AnswerForm(request.POST)
         if form.is_valid():
             answer = form.save(commit=False)
+            answer.author = request.user    # 추가한 속성 author 적용
             answer.create_date = timezone.now()
             answer.question = question
             answer.save()
@@ -39,11 +42,13 @@ def answer_create(request, question_id):
     return render(request, 'pybo/question_detail.html', context)
 
 # pybo 질문등록
+@login_required(login_url='common:login')
 def question_create(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
         if form.is_valid():
             question = form.save(commit=False)
+            question.author = request.user    # 추가한 속성 author 적용
             question.create_date = timezone.now()
             question.save()
             return redirect('pybo:index')
