@@ -28,9 +28,9 @@
         {% endif %}
         </tbody>
     </table>
-    <!-- 페이징처리 시작 -->
+    <!--  페이징처리 시작  -->
     <ul class="pagination justify-content-center">
-        <!-- 이전페이지 -->
+        <!--  이전페이지  -->
         {% if question_list.has_previous %}
         <li class="page-item">
             <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
@@ -40,7 +40,7 @@
             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
         </li>
         {% endif %}
-        <!-- 페이지리스트 -->
+        <!--  페이지리스트  -->
         {% for page_number in question_list.paginator.page_range %}
         {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
             {% if page_number == question_list.number %}
@@ -54,7 +54,7 @@
             {% endif %}
         {% endif %}
         {% endfor %}
-        <!-- 다음페이지 -->
+        <!--  다음페이지  -->
         {% if question_list.has_next %}
         <li class="page-item">
             <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
@@ -65,7 +65,7 @@
         </li>
         {% endif %}
     </ul>
-    <!-- 페이징처리 끝 -->
+    <!--  페이징처리 끝  -->
     <a href="{% url 'pybo:question_create' %}" class="btn btn-primary">질문 등록하기</a>
 </div>
 
