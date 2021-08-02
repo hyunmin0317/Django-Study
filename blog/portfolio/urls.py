@@ -6,3 +6,4 @@ app_name = 'portfolio'
 urlpatterns = [
     path('', views.portfolio, name="portfolio"),
 ]
+
