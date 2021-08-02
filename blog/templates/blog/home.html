@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if blogs %}
+{% for blog in blogs.all %}
+    <div class="container">
+        <h1>{{ blog.title }}</h1>
+        <p>{{ blog.pub_date }}</p>
+        <p>{{ blog.summary }}<a href="{% url 'blog:detail' blog.id %}">....more</a></p>
+    </div>
+{% endfor %}
+{% else %}
+<h3>데이터가 없습니다.</h3>
+{% endif %}
+
+{% endblock %}
