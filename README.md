@@ -1,5 +1,5 @@
 # Django Study
-### Django 스터디 (2021.07.18 ~ )
+### Django 스터디 (2021.07.18 ~ 2021.08.08)
 
 ---
 
@@ -18,12 +18,3 @@
 > **고민영 [(gomin0)](https://github.com/gomin0)**
 >
 > **김진호 [(jinho7)](https://github.com/jinho7)**
-
-<br>
-
-## :books: 스터디 기록
-
-|    Date    |           Homework           | Participants |
-| :--------: | :--------------------------: | :----------: |
-| 2021.07.25 | 점프 투 장고 - 2장 장고 기초 |              |
-
